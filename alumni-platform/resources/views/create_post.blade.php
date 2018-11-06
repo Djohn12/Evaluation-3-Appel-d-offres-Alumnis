@@ -22,9 +22,10 @@
                             <label for="type" class="col-sm-4 col-form-label text-md-right">Type du document</label>
 
                             <div class="col-md-6">
+                                <option>Type de document</option>
                                 <select id="type" name="type">
                                     @foreach ($types as $id => $type)
-                                    <option id="{{$type->id}}">{{$type->type}}</option>
+                                    <option value="{{$type->id}}">{{$type->type}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -34,7 +35,7 @@
                             <label for="content" class="col-md-12 col-form-label text-md-center">Contenu de l'article</label>
 
                             <div class="col-md-12 text-md-center">
-                                <textarea id="content" name="content" placeholder="Je vais vous parler aujourd'hui d'une fameuse technologie..." rows="30" cols="45"></textarea>
+                                <textarea id="content" name="content" placeholder="Je vais vous parler aujourd'hui d'une fameuse technologie..."></textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-0">

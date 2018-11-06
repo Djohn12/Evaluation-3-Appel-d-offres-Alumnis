@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Type;
+use App\Post;
+use Auth;
+use Session;
+
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
@@ -36,7 +41,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $post = new Post();
+
+        // $post->title = 'title';
+        // $post->content = 'content';
+        // $post->author_id = 1;
+        // $post->type_id = 1;
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->author_id = Auth::user()->id;
+        $post->type_id = $request->input('type');
+        $post->save();
+
+        Session::flash('flash_message', 'Vous avez publié un nouveau post');
+        return view('home');
     }
 
     /**
