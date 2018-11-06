@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Créez un nouvel article') }}</div>
+                <div class="card-header">{{ __('Créez une nouvelle entrée') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('store_post') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -19,12 +19,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="type" class="col-sm-4 col-form-label text-md-right">Type</label>
+                            <label for="type" class="col-sm-4 col-form-label text-md-right">Type du document</label>
 
                             <div class="col-md-6">
                                 <select id="type" name="type">
-                                    <option>12</option>
-                                    <option>1000</option>
+                                    @foreach ($types as $id => $type)
+                                    <option id="{{$type->id}}">{{$type->type}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
