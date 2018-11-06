@@ -6,9 +6,9 @@ use App\Type;
 use App\Post;
 use Auth;
 use Session;
+use Redirect;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
@@ -55,8 +55,9 @@ class PostController extends Controller
         $post->type_id = $request->input('type');
         $post->save();
 
-        Session::flash('flash_message', 'Vous avez publié un nouveau post');
-        return view('home');
+        $request->session()->flash('message', 'Félicictations ! Vous avez publié un nouveau document pour la communauté');
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('home');
     }
 
     /**
