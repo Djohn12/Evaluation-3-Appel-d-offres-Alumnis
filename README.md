@@ -16,3 +16,5 @@ Attention, le client ne regardera même pas s'il n'y a pas de version en ligne.
 ## Kanban
 
 Pour montrer que vous savez vous organiser.
+
+Le Kanban est disponible dans l'onglet "Projet" du repository ou sur https://github.com/Djohn12/Evaluation-3-Appel-d-offres-Alumnis/projects/1
