@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('type')->orderBy('created_at')->get();
+        $posts = Post::with('type')->orderBy('created_at', 'DESC')->paginate(5);
         $posts = compact('posts');
         return view('home', $posts);
     }
