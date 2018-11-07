@@ -7,12 +7,12 @@
         <p>{{ Session::get('message') }}</p>
     </div>
     @endif
-    <h1>Liste des publications</h1>
+    <h1>Résultats de la recherche</h1>
     <form action="{{ route('filter_post') }}" method="GET">
         @csrf
 
         <fieldset>
-            <legend>Vous pouvez aussi filtrer les publications par thème :</legend>
+            <legend>Effectuer une nouvelle recherche :</legend>
             <input type="checkbox" value="1" name="type[]">
             <label for="1">Articles</label>
             <input type="checkbox" value="3" name="type[]">
@@ -52,7 +52,6 @@
                 </div>
             </a>
         @endforeach
-        {{$posts->links()}}
     @endif
 </div>
 @endsection

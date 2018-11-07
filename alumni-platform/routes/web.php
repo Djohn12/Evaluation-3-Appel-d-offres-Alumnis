@@ -20,5 +20,6 @@ Auth::routes();
 Route::get('/home', 'PostController@index')->name('home');
 Route::get('post/show/{id}', 'PostController@show')->name('show_post');
 Route::get('/post/create','PostController@create')->name('create_post')->middleware('auth');
+Route::get('/post/filter', 'PostController@filter')->name('filter_post')->middleware('auth');
 
 Route::post('/post/store', 'PostController@store')->name('store_post')->middleware('auth');

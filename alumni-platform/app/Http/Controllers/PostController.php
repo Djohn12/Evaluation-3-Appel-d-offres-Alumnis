@@ -10,6 +10,7 @@ use Redirect;
 
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
@@ -55,7 +56,7 @@ class PostController extends Controller
         $post->type_id = $request->input('type');
         $post->save();
 
-        $request->session()->flash('message', 'Félicitations ! Vous avez publié un nouveau document pour la communauté');
+        Session::flash('message', 'Félicitations ! Vous avez publié un nouveau document pour la communauté');
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('home');
     }
@@ -71,6 +72,30 @@ class PostController extends Controller
         $post = Post::with('type')->find($id);
         return view('show_post', compact('post'));
     }
+
+
+    /**
+     * Display a filtered listing of the ressources.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function filter(Request $request)
+    {
+         if (!empty(Input::get('type'))) {
+        $types = Input::get('type');
+        $posts = Post::whereIn('type_id', $types)->orderBy('created_at', 'DESC')->get();
+        return view('filter_post', compact('posts'));
+         }
+        else {
+            Session::flash('message', "Aucune séléction n'a été faite pour filtrer les résultats");
+            Session::flash('flash_type', 'alert-danger');
+            return redirect()->route('home');
+        }
+    }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
