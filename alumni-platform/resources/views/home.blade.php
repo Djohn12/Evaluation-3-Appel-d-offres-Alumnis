@@ -40,8 +40,8 @@
                                     <h3>{{$post->type->type}} : {{$post->title}}</h3>
                                 </div>
                             </div>
-                            <div class="card-body">{{substr($post->content, 0, 100). '...'}}
-                            </div>
+                            <div class="card-body"><p>{{substr($post->content, 0, 230). '...'}}
+                            </p></div>
                             <div>
                                 <p>Publié par {{$post->author}}
                                 le {{$post->created_at}}</p>
