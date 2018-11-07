@@ -18,6 +18,15 @@ body {
 	color: #E80041;
 }
 
+a {
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
 .post {
 	margin-top: 5em;
 }

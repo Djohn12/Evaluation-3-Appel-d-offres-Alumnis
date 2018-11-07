@@ -10,24 +10,27 @@
     <h1>Liste des différentes publications :</h1>
     @if($posts)
         @foreach($posts as $id => $post)
-            <div class="post row justify-content-center">
-                <div class="col-md-10">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            <div class="text-right">Dernière mise à jour le {{$post->updated_at}}</div>
-                            <div class="card-title">
-                                <h2>{{$post->type->type}} : {{$post->title}}</h2>
+            <a href="{{ route('show_post', $post->id)}}">
+                <div class="post row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <div class="text-right">Dernière mise à jour le {{$post->updated_at}}</div>
+                                <div class="card-title">
+                                    <h3>{{$post->type->type}} : {{$post->title}}</h3>
+                                </div>
+                            </div>
+                            <div class="card-body">{{substr($post->content, 0, 100). '...'}}
+                            </div>
+                            <div>
+                                <p>Publié par {{$post->author}}
+                                le {{$post->created_at}}</p>
                             </div>
                         </div>
-                        <div class="card-body">{{substr($post->content, 0, 100). '...'}}</div>
-                        <div>
-                            <p>Publié par {{$post->author}}
-                            le {{$post->created_at}}</p>
-                        </div>
-                    </div>
-                    
-                </div>                
-            </div>
+                        
+                    </div>                
+                </div>
+            </a>
         @endforeach
         {{$posts->links()}}
     @endif
