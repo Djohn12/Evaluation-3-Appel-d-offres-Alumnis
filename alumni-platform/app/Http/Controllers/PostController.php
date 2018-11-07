@@ -56,7 +56,7 @@ class PostController extends Controller
         $post->type_id = $request->input('type');
         $post->save();
 
-        Session::flash('message', 'Félicitations ! Vous avez publié un nouveau document pour la communauté');
+        Session::flash('message', 'Félicitations, vous venez de publier un nouveau document pour la communauté');
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('home');
     }
