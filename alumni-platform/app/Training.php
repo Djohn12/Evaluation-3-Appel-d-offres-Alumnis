@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Training extends Model
 {
-	public function user()
+	public function users()
 	{
 		return $this->hasMany('App\User');
 	}
