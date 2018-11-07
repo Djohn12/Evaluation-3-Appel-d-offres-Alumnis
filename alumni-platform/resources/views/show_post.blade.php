@@ -22,7 +22,7 @@
             </div>                
         </div>
 	@else
-	<h1>Désolé, cette publication n'a pas pu être retrouvée, veuillez réessayer plus tard ou le signaler à nos services</h1>
+	<h1>Désolé, cette publication n'a pas pu être retrouvée. Veuillez réessayer plus tard ou le signaler à nos services si le problème persiste</h1>
 	@endif
 </div>
 
