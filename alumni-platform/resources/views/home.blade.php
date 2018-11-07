@@ -7,32 +7,29 @@
         <p>{{ Session::get('message') }}</p>
     </div>
     @endif
-
-
+    <h1>Liste des différentes publications :</h1>
     @if($posts)
         @foreach($posts as $id => $post)
-            <div class="row justify-content-center">
-                <div class="col-md-12">
+            <div class="post row justify-content-center">
+                <div class="col-md-10">
                     <div class="card text-center">
                         <div class="card-header">
+                            <div class="text-right">Dernière mise à jour le {{$post->updated_at}}</div>
                             <div class="card-title">
-                                <div class="">Document : {{$post->type->type}}</div>
-                                <h1>{{$post->title}}</h1>
+                                <h2>{{$post->type->type}} : {{$post->title}}</h2>
                             </div>
-                            <div class="card-title"></div>
                         </div>
-                        <div class="card-text">{{$post->content}}</div>
-                        <div class="float-left">
-                            <p>Publié par {{$post->author}}</p>
-                            <p>Le {{$post->created_at}}</p>
-                            <p>Dernière mise à jour le {{$post->updated_at}}</p>
+                        <div class="card-body">{{substr($post->content, 0, 100). '...'}}</div>
+                        <div>
+                            <p>Publié par {{$post->author}}
+                            le {{$post->created_at}}</p>
                         </div>
                     </div>
                     
                 </div>                
             </div>
         @endforeach
-
+        {{$posts->links()}}
     @endif
 </div>
 @endsection
