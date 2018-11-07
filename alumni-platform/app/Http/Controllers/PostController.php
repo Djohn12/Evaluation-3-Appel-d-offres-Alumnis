@@ -8,6 +8,7 @@ use Auth;
 use Session;
 use Redirect;
 
+use DB;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -19,7 +20,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('type')->orderBy('created_at')->get();
+        $posts = compact('posts');
+        return view('home', $posts);
     }
 
     /**
@@ -45,12 +48,9 @@ class PostController extends Controller
 
         $post = new Post();
 
-        // $post->title = 'title';
-        // $post->content = 'content';
-        // $post->author_id = 1;
-        // $post->type_id = 1;
         $post->title = $request->input('title');
         $post->content = $request->input('content');
+        $post->author = Auth::user()->name;
         $post->author_id = Auth::user()->id;
         $post->type_id = $request->input('type');
         $post->save();
