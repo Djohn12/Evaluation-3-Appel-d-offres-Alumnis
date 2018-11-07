@@ -9,3 +9,5 @@ Lors de la mise en place de la database je me suis rendu compte de quelques erre
 * la création de la colonne 'author_id' (clef étrangère) qui fait référence la colonne 'id' de la table User.
 
 * pour des raisons pratiques, j'ai simplifié la relation entre les "trainings" et les "users". Dans le prototype, chaque user ne peut être inclu que dans une seule formation (training). La création d'une nouvelle table associative sera nécessaire pour permettrent aux utilisateurs d'être associés à plusieurs formations.
+
+* la table training existe donc mais aucun utilisateur n'y est encore lié dans le MVP. En effet, la mise en place de ce lien nécessite une discussion approfondie à propos de la centralisation des outils et des données chez Simplon.
