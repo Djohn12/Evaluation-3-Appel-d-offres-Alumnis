@@ -31,6 +31,12 @@ a:hover {
 	margin-top: 5em;
 }
 
+.post:hover {
+	transition-property: transform;
+	transition-duration: 1s;
+	transform: scale(1.05);
+}
+
 .card-header {
 	background-color: #E80041;
 }
