@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	@if($post)
-		<div class="post row justify-content-center">
+		<div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card text-center">
                     <div class="card-header">
