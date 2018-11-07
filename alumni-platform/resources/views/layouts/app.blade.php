@@ -35,7 +35,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a class="nav-link" id="nav-link" href="{{ route('home') }}">{{ __('Accueil') }}</a></li>
-                        <li><a class="nav-link" id="nav-link" href="{{ route('create_post')}}">{{ __('Nouvelle Publication') }}</a></li>
+                        
+                        @if(auth()->user())
+                            <li><a class="nav-link" id="nav-link" href="{{ route('create_post')}}">{{ __('Nouvelle Publication') }}</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
