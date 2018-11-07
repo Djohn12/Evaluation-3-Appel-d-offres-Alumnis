@@ -55,7 +55,7 @@ class PostController extends Controller
         $post->type_id = $request->input('type');
         $post->save();
 
-        $request->session()->flash('message', 'Félicictations ! Vous avez publié un nouveau document pour la communauté');
+        $request->session()->flash('message', 'Félicitations ! Vous avez publié un nouveau document pour la communauté');
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('home');
     }
@@ -68,7 +68,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::with('type')->find($id);
+        return view('show_post', compact('post'));
     }
 
     /**
